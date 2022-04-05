@@ -1,0 +1,8 @@
+<div class="pokemon-list">
+<app-pokemon-card *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 20, currentPage: page, totalItems: 151 }; index as i" 
+[pokemon]="pokemon.name"
+[numero] = "(i + 1) + offset">
+</app-pokemon-card>
+</div>
+
+<pagination-controls (pageChange)="page = $event; pokemons = []; getPokemons()"></pagination-controls>
